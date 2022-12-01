@@ -8,7 +8,17 @@ Rails.application.routes.draw do
   sessions: "admin/sessions"
 }
 
+  namespace :admin do
+    root to: 'homes#top'
+    get "destroy/admin/session" => "admin#sign_out"
+  end
+
+  namespace :admin do
+    resources :items, only:[:create,:index,:show,:edit,:destroy,:update]
+  end
+
   root to: "homes#top"
+  get "home/about" => "homes#about", as: "about"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

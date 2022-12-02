@@ -6,7 +6,6 @@ class CreateItems < ActiveRecord::Migration[7.0]
       t.text :introduction, null: false, default: ""
       t.integer :price, null: false, default: ""
       t.boolean :is_active, default: true,null: false
-      t.datetime :"update_at", default: -> { "now()" }, null: false
       t.timestamps
     end
   end

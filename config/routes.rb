@@ -1,10 +1,4 @@
 Rails.application.routes.draw do
-  namespace :admin do
-    get 'items/index'
-    get 'items/show'
-    get 'items/edit'
-    get 'items/new'
-  end
   devise_for :customers,skip: [:passwords], controllers: {
   registrations: "public/registrations",
   sessions: 'public/sessions'
@@ -20,7 +14,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :items, only:[:create,:index,:show,:edit,:destroy,:update]
+    resources :items, only:[:create,:index,:show,:edit,:destroy,:update,:new]
   end
 
   root to: "homes#top"

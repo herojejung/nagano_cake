@@ -5,26 +5,26 @@ class Admin::ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    if @book.save
+    if @item.save
     redirect_to admin_item_path(@item.id)
     end
   end
 
   def index
     @items = Item.all
-    @item.new
-  end
-
-
-  def index
   end
 
   def show
+    @item = Item.find(params[:id])
   end
 
   def edit
   end
 
-  def new
-  end
 end
+
+  private
+  # ストロングパラメータ
+  def item_params
+    params.require(:item).permit(:name, :introduction, :price)
+  end

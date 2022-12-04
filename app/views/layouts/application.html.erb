@@ -19,6 +19,7 @@
  <li>
   <%= link_to "ログアウト", destroy_admin_session_path, data: { turbo_method: :delete} %>
   <%= link_to "商品一覧画面", admin_items_path %>
+  <%= link_to "ジャンル一覧", admin_genre_index_path %>
  </li>
 <% else %>
  <li>

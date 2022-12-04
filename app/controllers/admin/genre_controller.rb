@@ -10,9 +10,10 @@ end
     @genres = Genre.all
   end
 
-
   def edit
+    @genre = Genre.find(params[:id])
   end
+  
 private
   # ストロングパラメータ
 def genre_params
